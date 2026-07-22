@@ -83,6 +83,16 @@ export function Contact() {
                   <p className="text-slate-600 mt-1">Работно време: 09:00 - 17:00</p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-teal-100 p-3 rounded-xl text-teal-600 shrink-0">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 block mb-1">Офис гр. Варна</h3>
+                  <p className="text-slate-600">гр. Варна, ул. „Заменхоф“ № 1, ет. 2</p>
+                </div>
+              </div>
             </div>
 
             <div className="mt-12 p-6 bg-slate-50 rounded-2xl border border-slate-200">
@@ -100,13 +110,11 @@ export function Contact() {
           <div>
             <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl shadow-slate-200/50">
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Изпратете ни съобщение</h2>
-              <form className="space-y-6" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact?success=true">
-                <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>
-                    Не попълвайте това поле, ако сте човек: <input name="bot-field" />
-                  </label>
-                </p>
+              <form className="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                {/* ЗАБЕЛЕЖКА: Вземете своя Access Key от https://web3forms.com/ и го поставете тук */}
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+                <input type="hidden" name="subject" value="Ново съобщение от сайта (Контакти)" />
+                <input type="hidden" name="redirect" value="https://web3forms.com/success" />
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Име</label>
                   <input type="text" name="name" required className="w-full h-12 px-4 rounded-md border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all bg-slate-50 focus:bg-white" />

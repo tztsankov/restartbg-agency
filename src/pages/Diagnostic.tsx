@@ -312,13 +312,11 @@ export function Diagnostic() {
               <p className="text-slate-500 text-[14px]">Информацията ти се разглежда поверително. Не даваме обещания без проверка на ситуацията.</p>
             </div>
             
-            <form className="space-y-6" name="diagnostic" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/diagnostic?success=true">
-              <input type="hidden" name="form-name" value="diagnostic" />
-              <p className="hidden">
-                <label>
-                  Не попълвайте това поле, ако сте човек: <input name="bot-field" />
-                </label>
-              </p>
+            <form className="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+              {/* ЗАБЕЛЕЖКА: Вземете своя Access Key от https://web3forms.com/ и го поставете тук */}
+              <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+              <input type="hidden" name="subject" value="Нова заявка за Втори Шанс (Диагностика)" />
+              <input type="hidden" name="redirect" value="https://web3forms.com/success" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[12px] font-semibold text-slate-600 mb-1.5">Име</label>
